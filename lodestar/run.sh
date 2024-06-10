@@ -8,6 +8,9 @@ then
   BUILDER_SELECTION="builderonly"
 fi
 
+# Remove the existing keystores to avoid keystore locking issues.
+rm -rf /opt/data/cache /opt/data/secrets /opt/data/keystores
+
 for f in /home/charon/validator_keys/keystore-*.json; do
     echo "Importing key ${f}"
 
@@ -30,4 +33,5 @@ exec node /usr/app/packages/cli/bin/lodestar validator \
     --beaconNodes="$BEACON_NODE_ADDRESS" \
     --builder="$BUILDER_API_ENABLED" \
     --builder.selection="$BUILDER_SELECTION" \
-    --distributed
+    --distributed \
+    --useProduceBlockV3=false

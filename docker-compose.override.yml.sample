@@ -15,14 +15,14 @@
 # and how the local docker-compose.yml is configured.
 
 #services:
-  #geth:
-    # Disable geth
+  #nethermind:
+    # Disable nethermind
     #profiles: [disable]
-    # Bind geth internal ports to host ports
+    # Bind nethermind internal ports to host ports
     #ports:
       #- 8545:8545 # JSON-RPC
       #- 8551:8551 # AUTH-RPC
-      #- 6060:6060 # Metrics
+      #- 8008:8008 # Metrics
 
   #lighthouse:
     # Disable lighthouse
